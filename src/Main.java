@@ -3,7 +3,6 @@
 // LaGrandeJavaDrouille
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Vive la gtrande javaDrouille");
-        // caca
+        System.out.println("Vive la grande javaDrouille");
     }
 }
