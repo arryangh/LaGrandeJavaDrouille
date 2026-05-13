@@ -3,11 +3,17 @@ import java.time.LocalTime;
 
 public class DaySchedule {
 
+	public DaySchedule(DayOfWeek dayofweek,LocalTime theoricalstart,LocalTime theoricalend){
+		 dayOfWeek=dayofweek;
+		 theoricalStart=theoricalstart;
+		 theoricalEnd=theoricalend;
+	}
 	protected DayOfWeek dayOfWeek;
 
 	protected LocalTime theoricalStart;
 
 	protected LocalTime theoricalEnd;
+
 
 
 	public DayOfWeek getDayOfWeek() {
