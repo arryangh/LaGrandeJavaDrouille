@@ -35,7 +35,7 @@ public class Main {
 
     // Données fictives F0
     private static Entreprise createFakeEntreprise() {
-        Entreprise entreprise = new Entreprise("Polytech Corp");
+        Entreprise entreprise = Entreprise.getInstance("Polytech");
         entreprise.addDepartement("Informatique");
         entreprise.addDepartement("Marketing");
         entreprise.addEmployee("Jean Dupont", "Informatique");

@@ -60,7 +60,7 @@ public class Employee implements Serializable {
 
 	@Override
 	public String toString() {
-		return "com.example.pointingemulator.model.Employee{" +
+		return "Employee{" +
 				"employeeID=" + idEmployee +
 				", Name=" + employeeName +
 				", stock hour=" + stockHours +

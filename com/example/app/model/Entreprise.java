@@ -19,8 +19,24 @@ public class Entreprise implements Serializable {
 
 	private TreeMap<UUID, Departement> departementMap;
 
+	// Instance unique
+	private static Entreprise instance = null;
 
-	public Entreprise(String Name) {
+	// Retourne l'instance unique - crée si elle n'existe pas encore
+	public static Entreprise getInstance(String name) {
+		if (instance == null) {
+			instance = new Entreprise(name);
+		}
+		return instance;
+	}
+
+	// Pour la désérialisation - évite de créer une 2ème instance
+	protected Object readResolve() {
+		instance = this;
+		return this;
+	}
+
+	private Entreprise(String Name) {
 		idEntreprise = UUID.randomUUID();
 		entrepriseName = Name;
 		departementMap = new TreeMap<UUID, Departement>();
