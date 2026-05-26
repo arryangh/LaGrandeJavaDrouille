@@ -1,9 +1,16 @@
-package com.example.pointingemulator.model;
+package com.example.app.model;
+
+import com.example.pointingemulator.model.Employee;
 
 import java.util.UUID;
 import java.util.TreeMap;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Departement {
+public class Departement implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	public Departement(String departementname){
 		idDepartement = UUID.randomUUID();;
@@ -70,6 +77,14 @@ public class Departement {
 			}
 		}
 		return false;
+	}
+
+	public Employee getEmployee(UUID id) {
+		return employeeMap.get(id);
+	}
+
+	public List<Employee> getAllEmployees() {
+		return new ArrayList<>(employeeMap.values());
 	}
 
 }

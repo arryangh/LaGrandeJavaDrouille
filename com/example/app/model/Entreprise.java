@@ -1,10 +1,17 @@
-package com.example.pointingemulator.model;
+package com.example.app.model;
+
+import com.example.pointingemulator.model.Employee;
 
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.UUID;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Entreprise {
+public class Entreprise implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private UUID idEntreprise;
 
@@ -80,6 +87,16 @@ public class Entreprise {
 		}
 	}
 
+	// Cherche un employé par UUID dans tous les départements
+	public Employee findEmployee(UUID id) {
+		for (Departement dept : departementMap.values()) {
+			if (dept.inDepartement(id)) {
+				return dept.getEmployee(id);
+			}
+		}
+		return null;
+	}
+
 	public boolean employeeExist(String Name) {
 		for (Departement dept : departementMap.values()) {
 			if (dept.EmployeeExist(Name)) {
@@ -98,5 +115,13 @@ public class Entreprise {
 			}
 		}
 		return false;
+	}
+
+	public List<Employee> getAllEmployees() {
+		List<Employee> allEmployees = new ArrayList<>();
+		for (Departement dept : departementMap.values()) {
+			allEmployees.addAll(dept.getAllEmployees());
+		}
+		return allEmployees;
 	}
 }
